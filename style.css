@@ -1,152 +1,108 @@
 
 :root {
-    /* Basic dark theme variables for text and inputs to ensure readability */
-    --text-color: #e0e0e0;
-    --input-bg: rgba(255, 255, 255, 0.05);
-    --input-border: rgba(255, 255, 255, 0.2);
-    --focus-border-color: #8affff; /* A bright, ethereal focus color */
+    --text-color-light: #333;
+    --text-color-dark: #E0E0E0;
+    --bg-light: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    --bg-dark: linear-gradient(120deg, #2c3e50 0%, #4ca1af 100%);
+    
+    --glass-bg-light: rgba(255, 255, 255, 0.6);
+    --glass-border-light: rgba(255, 255, 255, 0.8);
+    --glass-shadow-light: rgba(0, 0, 0, 0.1);
 
-    /* Button colors for the new aesthetic */
-    --button-primary-bg: rgba(74, 144, 226, 0.7); /* A transparent blue */
-    --button-primary-hover-bg: rgba(74, 144, 226, 0.9);
-    --button-success-bg: rgba(40, 167, 69, 0.7); /* A transparent green */
-    --button-success-hover-bg: rgba(40, 167, 69, 0.9);
-    --button-danger-bg: rgba(220, 53, 69, 0.7); /* A transparent red */
-    --button-danger-hover-bg: rgba(220, 53, 69, 0.9);
-    --button-secondary-bg: rgba(108, 117, 125, 0.7); /* A transparent gray */
-    --button-secondary-hover-bg: rgba(108, 117, 125, 0.9);
+    --glass-bg-dark: rgba(40, 40, 40, 0.5);
+    --glass-border-dark: rgba(255, 255, 255, 0.1);
+    --glass-shadow-dark: rgba(0, 0, 0, 0.3);
 
-    /* Status badge colors */
-    --status-pending-bg: rgba(255, 193, 7, 0.7); /* Transparent yellow/orange */
-    --status-paid-bg: rgba(40, 167, 69, 0.7); /* Transparent green */
-    --status-overdue-bg: rgba(220, 53, 69, 0.7); /* Transparent red */
-
-    /* Table colors */
-    --table-header-bg: rgba(255, 255, 255, 0.1);
-    --table-header-border: rgba(255, 255, 255, 0.2);
-    --table-row-even-bg: rgba(255, 255, 255, 0.03);
-    --table-row-hover-bg: rgba(255, 255, 255, 0.07);
+    --primary-color: #007aff;
+    --success-color: #34c759;
+    --danger-color: #ff3b30;
+    --warning-color: #ff9500;
 }
 
 body {
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    min-height: 100vh; /* Ensure body covers full viewport height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    color: var(--text-color);
-    overflow-x: hidden; /* Prevent horizontal scroll */
-
-    /* 1. Animated Aurora Gradient Background */
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, #8a2be2, #00ced1); /* More vibrant colors */
-    background-size: 600% 600%; /* Larger size for smoother animation */
-    animation: gradient-animation 20s ease infinite; /* Slower animation */
+    padding: 30px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background: var(--bg-light);
+    color: var(--text-color-light);
+    transition: background 0.4s ease, color 0.4s ease;
 }
 
-@keyframes gradient-animation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+body.dark-theme {
+    background: var(--bg-dark);
+    color: var(--text-color-dark);
 }
 
-/* Base styles for containers to ensure they are centered and have some margin */
 .container {
-    width: 90%;
-    max-width: 1400px;
-    margin: 40px auto; /* More margin to give space around elements */
-    padding: 0; /* Remove container padding as elements inside will have their own */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Space between sections */
-}
-
-h1, h2 {
-    color: var(--text-color);
-    text-align: center;
-    margin-bottom: 25px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Subtle glow for titles */
+    gap: 30px;
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
+}
+
+h1 {
+    margin: 0;
 }
 
 #themeToggleButton {
     background: none;
     border: none;
-    font-size: 1.8em; /* Larger icon */
+    font-size: 1.8em;
     cursor: pointer;
-    color: var(--text-color);
-    transition: color 0.3s ease, transform 0.3s ease;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* Subtle glow */
+    color: inherit;
 }
 
-#themeToggleButton:hover {
-    transform: scale(1.1);
-    color: #aaffff; /* Brighter on hover */
+/* THE CORE GLASS MATERIAL STYLE */
+.glass-material {
+    background: var(--glass-bg-light);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 var(--glass-shadow-light);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border-light);
+    padding: 30px;
+    transition: background 0.4s ease, border 0.4s ease, box-shadow 0.4s ease;
+}
+
+body.dark-theme .glass-material {
+    background: var(--glass-bg-dark);
+    border: 1px solid var(--glass-border-dark);
+    box-shadow: 0 8px 32px 0 var(--glass-shadow-dark);
 }
 
 .summary-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly larger cards */
-    gap: 30px; /* More space between cards */
-    margin-bottom: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
 }
 
-/* 2. Liquid (Blob) Shapes & 3. Glass Effect */
-.card, .invoice-form, .filters, .invoice-list {
-    background: rgba(255, 255, 255, 0.1); /* Lighter transparency */
-    border: 1px solid rgba(255, 255, 255, 0.18); /* Softer border */
-    backdrop-filter: blur(30px); /* Increased blur for a stronger glass effect */
-    -webkit-backdrop-filter: blur(30px);
-    padding: 30px; /* Generous padding */
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* More pronounced shadow */
-    transition: all 0.5s ease-in-out;
-    overflow: hidden;
-    position: relative;
-    /* Liquid shape border-radius */
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    animation: blob-animation 12s ease-in-out infinite alternate; /* Slower, alternating animation */
-}
-
-@keyframes blob-animation {
-    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-    25% { border-radius: 70% 30% 60% 40% / 40% 70% 30% 60%; }
-    50% { border-radius: 40% 60% 70% 30% / 70% 40% 60% 30%; }
-    75% { border-radius: 30% 70% 40% 60% / 30% 60% 40% 70%; }
-    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-}
-
-.card:hover {
-    transform: translateY(-8px) scale(1.03); /* More pronounced hover effect */
-    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
-    background: rgba(255, 255, 255, 0.15); /* Slightly more opaque on hover */
+.summary-cards .card {
+    padding: 20px;
 }
 
 .card h3 {
     margin-top: 0;
-    color: var(--text-color);
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
 .card p {
-    font-size: 2em; /* Larger font size for impact */
-    font-weight: bold;
+    font-size: 2em;
+    font-weight: 600;
     margin: 10px 0 0;
-    color: #fff; /* White for numbers to stand out */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-.total-receivable p { color: #8aff8a; } /* Brighter green */
-.total-collected p { color: #8affff; } /* Cyan for collected */
-.total-overdue p { color: #ff8a8a; } /* Brighter red */
-
+.total-receivable p { color: var(--primary-color); }
+.total-collected p { color: var(--success-color); }
+.total-overdue p { color: var(--danger-color); }
 
 .form-group {
     margin-bottom: 20px;
@@ -155,197 +111,110 @@ h1, h2 {
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    font-weight: bold;
-    color: var(--text-color);
-    text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
+    font-weight: 600;
 }
 
-.form-group input[type="text"],
-.form-group input[type="number"],
-.form-group input[type="date"],
-.form-group select {
-    width: calc(100% - 24px); /* Adjust for padding and border */
+.form-group input, .form-group select {
+    width: 100%;
     padding: 12px;
-    border: 1px solid var(--input-border);
-    border-radius: 10px; /* Slightly rounded inputs */
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background-color: rgba(0,0,0,0.05);
     font-size: 1em;
     box-sizing: border-box;
-    background-color: var(--input-bg);
-    color: var(--text-color);
-    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
-.form-group input[type="text"]:focus,
-.form-group input[type="number"]:focus,
-.form-group input[type="date"]:focus,
-.form-group select:focus {
-    border-color: var(--focus-border-color);
+body.dark-theme .form-group input, body.dark-theme .form-group select {
+    background-color: rgba(255,255,255,0.1);
+    color: var(--text-color-dark);
+}
+
+.form-group input:focus, .form-group select:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(138, 255, 255, 0.4); /* Ethereal focus glow */
-    background-color: rgba(255, 255, 255, 0.1); /* Slightly more opaque on focus */
+    border-color: var(--primary-color);
+    background-color: transparent;
 }
 
 button {
-    background-color: var(--button-primary-bg);
-    color: white;
     padding: 12px 25px;
     border: none;
-    border-radius: 10px; /* Rounded buttons */
+    border-radius: 8px;
     cursor: pointer;
     font-size: 1em;
-    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease;
-    margin-right: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    transition: transform 0.2s, background-color 0.3s;
+    background-color: var(--primary-color);
+    color: white;
 }
 
 button:hover {
-    background-color: var(--button-primary-hover-bg);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
 }
 
-button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+.filters button {
+    margin-right: 10px;
 }
 
-/* Specific button styles */
-#applyFilters { background-color: var(--button-success-bg); }
-#applyFilters:hover { background-color: var(--button-success-hover-bg); }
-#clearFilters { background-color: var(--button-danger-bg); }
-#clearFilters:hover { background-color: var(--button-danger-hover-bg); }
+#clearFilters {
+    background-color: #6c757d;
+}
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 25px;
-    background: rgba(255, 255, 255, 0.05); /* Slightly transparent table background */
-    border-radius: 15px; /* Rounded table corners */
-    overflow: hidden; /* Ensures rounded corners are visible */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
 table thead th {
-    background-color: var(--table-header-bg);
-    color: white;
     padding: 15px;
     text-align: left;
-    border-bottom: 2px solid var(--table-header-border);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+body.dark-theme table thead th {
+    border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
 table tbody td {
-    padding: 12px 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Lighter row borders */
+    padding: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
     vertical-align: middle;
-    color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-table tbody tr:nth-child(even) {
-    background-color: var(--table-row-even-bg);
-}
-
-table tbody tr:hover {
-    background-color: var(--table-row-hover-bg);
+body.dark-theme table tbody td {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .status-badge {
-    display: inline-block;
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.85em;
     font-weight: bold;
     color: white;
-    text-align: center;
-    min-width: 80px;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-.status-Bekliyor { background-color: var(--status-pending-bg); }
-.status-Ödendi { background-color: var(--status-paid-bg); }
-.status-Gecikti { background-color: var(--status-overdue-bg); }
+.status-Bekliyor { background-color: var(--warning-color); }
+.status-Ödendi { background-color: var(--success-color); }
+.status-Gecikti { background-color: var(--danger-color); }
 
 .actions button {
-    padding: 8px 15px;
     font-size: 0.9em;
+    padding: 8px 15px;
     margin-right: 5px;
 }
 
-.actions button.mark-paid { background-color: var(--button-success-bg); }
-.actions button.mark-paid:hover { background-color: var(--button-success-hover-bg); }
-.actions button.mark-overdue { background-color: var(--button-danger-bg); }
-.actions button.mark-overdue:hover { background-color: var(--button-danger-hover-bg); }
-.actions button.delete { background-color: var(--button-secondary-bg); }
-.actions button.delete:hover { background-color: var(--button-secondary-hover-bg); }
+.actions .delete {
+    background: #6c757d;
+}
 
-
-/* Responsive Design - Adapted for new aesthetic */
 @media (max-width: 768px) {
-    .container {
-        width: 95%;
-        margin: 20px auto;
-        gap: 20px;
+    body {
+        padding: 15px;
     }
-
+    .glass-material {
+        padding: 20px;
+    }
     .summary-cards {
         grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .card, .invoice-form, .filters, .invoice-list {
-        padding: 20px; /* Slightly less padding on smaller screens */
-        border-radius: 50% 50% 40% 60% / 50% 40% 60% 50%; /* Slightly simpler blob on mobile */
-        animation: blob-animation 10s ease-in-out infinite alternate; /* Faster animation on mobile */
-    }
-
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
-
-    thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-
-    table tbody tr {
-        margin-bottom: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 15px;
-        padding: 10px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        background: rgba(255, 255, 255, 0.08); /* Slightly more visible on mobile */
-    }
-
-    table tbody td {
-        border: none;
-        position: relative;
-        padding-left: 50%;
-        text-align: right;
-    }
-
-    table tbody td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 15px;
-        width: calc(50% - 30px);
-        padding-right: 10px;
-        white-space: nowrap;
-        text-align: left;
-        font-weight: bold;
-        color: var(--text-color);
-    }
-
-    .actions {
-        text-align: right;
-        margin-top: 10px;
-    }
-
-    .actions button {
-        display: block;
-        width: 100%;
-        margin-bottom: 8px;
     }
 }
