@@ -30,8 +30,8 @@
 
     /* Glassmorphism specific variables */
     --glass-bg-blur: 10px;
-    --glass-bg-color-light: rgba(255, 255, 255, 0.2);
-    --glass-border-light: 1px solid rgba(255, 255, 255, 0.3);
+    --glass-bg-color-light: rgba(255, 255, 255, 0.15);
+    --glass-border-light: 1px solid rgba(255, 255, 255, 0.2);
     --glass-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -65,8 +65,8 @@ body[data-theme="dark"] {
     --form-shadow-light: rgba(0, 0, 0, 0.12);
 
     /* Glassmorphism specific variables for dark theme */
-    --glass-bg-color-light: rgba(255, 255, 255, 0.05);
-    --glass-border-light: 1px solid rgba(255, 255, 255, 0.1);
+    --glass-bg-color-light: rgba(255, 255, 255, 0.15);
+    --glass-border-light: 1px solid rgba(255, 255, 255, 0.2);
     --glass-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -74,7 +74,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: var(--bg-color-light);
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460, #16213e, #1a1a2e);
     color: var(--text-color-light);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
