@@ -1,99 +1,73 @@
 
 :root {
-    --bg-color-light: #f4f7f6;
-    --text-color-light: #333;
-    --container-bg-light: #ffffff;
-    --header-footer-color-light: #2c3e50;
-    --card-bg-light: #ecf0f1;
-    --card-hover-bg-light: #e0e5e7;
-    --form-section-bg-light: #fdfdfd;
-    --border-color-light: #ddd;
-    --focus-border-color-light: #3498db;
-    --button-primary-bg-light: #3498db;
-    --button-primary-hover-bg-light: #2980b9;
-    --button-success-bg-light: #28a745;
-    --button-success-hover-bg-light: #218838;
-    --button-danger-bg-light: #dc3545;
-    --button-danger-hover-bg-light: #c82333;
-    --button-secondary-bg-light: #95a5a6;
-    --button-secondary-hover-bg-light: #7f8c8d;
-    --table-header-bg-light: #34495e;
-    --table-header-border-light: #2c3e50;
-    --table-row-even-bg-light: #f9f9f9;
-    --table-row-hover-bg-light: #f1f1f1;
-    --status-pending-bg-light: #f39c12;
-    --status-paid-bg-light: #27ae60;
-    --status-overdue-bg-light: #e74c3c;
-    --shadow-light: rgba(0, 0, 0, 0.08);
-    --card-shadow-light: rgba(0, 0, 0, 0.05);
-    --form-shadow-light: rgba(0, 0, 0, 0.04);
+    /* Basic dark theme variables for text and inputs to ensure readability */
+    --text-color: #e0e0e0;
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --input-border: rgba(255, 255, 255, 0.2);
+    --focus-border-color: #8affff; /* A bright, ethereal focus color */
 
-    /* Glassmorphism specific variables */
-    --glass-bg-blur: 10px;
-    --glass-bg-color-light: rgba(255, 255, 255, 0.15);
-    --glass-border-light: 1px solid rgba(255, 255, 255, 0.2);
-    --glass-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+    /* Button colors for the new aesthetic */
+    --button-primary-bg: rgba(74, 144, 226, 0.7); /* A transparent blue */
+    --button-primary-hover-bg: rgba(74, 144, 226, 0.9);
+    --button-success-bg: rgba(40, 167, 69, 0.7); /* A transparent green */
+    --button-success-hover-bg: rgba(40, 167, 69, 0.9);
+    --button-danger-bg: rgba(220, 53, 69, 0.7); /* A transparent red */
+    --button-danger-hover-bg: rgba(220, 53, 69, 0.9);
+    --button-secondary-bg: rgba(108, 117, 125, 0.7); /* A transparent gray */
+    --button-secondary-hover-bg: rgba(108, 117, 125, 0.9);
 
-body[data-theme="dark"] {
-    --bg-color-light: #1a1a2e;
-    --text-color-light: #e0e0e0;
-    --container-bg-light: #16213e;
-    --header-footer-color-light: #e0e0e0;
-    --card-bg-light: rgba(255, 255, 255, 0.05);
-    --card-hover-bg-light: rgba(255, 255, 255, 0.08);
-    --form-section-bg-light: #0f3460;
-    --border-color-light: #4a4a60;
-    --focus-border-color-light: #52b2e8;
-    --button-primary-bg-light: #52b2e8;
-    --button-primary-hover-bg-light: #3a97d1;
-    --button-success-bg-light: #4CAF50;
-    --button-success-hover-bg-light: #45a049;
-    --button-danger-bg-light: #f44336;
-    --button-danger-hover-bg-light: #da190b;
-    --button-secondary-bg-light: #6c757d;
-    --button-secondary-hover-bg-light: #5a6268;
-    --table-header-bg-light: #283747;
-    --table-header-border-light: #34495e;
-    --table-row-even-bg-light: rgba(255, 255, 255, 0.03);
-    --table-row-hover-bg-light: rgba(255, 255, 255, 0.07);
-    --status-pending-bg-light: #ffc107;
-    --status-paid-bg-light: #28a745;
-    --status-overdue-bg-light: #dc3545;
-    --shadow-light: rgba(0, 0, 0, 0.25);
-    --card-shadow-light: rgba(0, 0, 0, 0.15);
-    --form-shadow-light: rgba(0, 0, 0, 0.12);
+    /* Status badge colors */
+    --status-pending-bg: rgba(255, 193, 7, 0.7); /* Transparent yellow/orange */
+    --status-paid-bg: rgba(40, 167, 69, 0.7); /* Transparent green */
+    --status-overdue-bg: rgba(220, 53, 69, 0.7); /* Transparent red */
 
-    /* Glassmorphism specific variables for dark theme */
-    --glass-bg-color-light: rgba(255, 255, 255, 0.15);
-    --glass-border-light: 1px solid rgba(255, 255, 255, 0.2);
-    --glass-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Table colors */
+    --table-header-bg: rgba(255, 255, 255, 0.1);
+    --table-header-border: rgba(255, 255, 255, 0.2);
+    --table-row-even-bg: rgba(255, 255, 255, 0.03);
+    --table-row-hover-bg: rgba(255, 255, 255, 0.07);
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     margin: 0;
-    padding: 20px;
-    background: linear-gradient(to right, #8e2de2, #4a00e0);
-    color: var(--text-color-light);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 0;
+    min-height: 100vh; /* Ensure body covers full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    color: var(--text-color);
+    overflow-x: hidden; /* Prevent horizontal scroll */
+
+    /* 1. Animated Aurora Gradient Background */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, #8a2be2, #00ced1); /* More vibrant colors */
+    background-size: 600% 600%; /* Larger size for smoother animation */
+    animation: gradient-animation 20s ease infinite; /* Slower animation */
 }
 
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Base styles for containers to ensure they are centered and have some margin */
 .container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: var(--container-bg-light);
-    border-radius: 8px;
-    box-shadow: 0 4px 12px var(--shadow-light);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 90%;
+    max-width: 1400px;
+    margin: 40px auto; /* More margin to give space around elements */
+    padding: 0; /* Remove container padding as elements inside will have their own */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between sections */
 }
 
 h1, h2 {
-    color: var(--header-footer-color-light);
+    color: var(--text-color);
     text-align: center;
     margin-bottom: 25px;
-    transition: color 0.3s ease;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Subtle glow for titles */
 }
 
 .header-content {
@@ -106,80 +80,72 @@ h1, h2 {
 #themeToggleButton {
     background: none;
     border: none;
-    font-size: 1.5em;
+    font-size: 1.8em; /* Larger icon */
     cursor: pointer;
-    color: var(--header-footer-color-light);
-    transition: color 0.3s ease;
+    color: var(--text-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* Subtle glow */
+}
+
+#themeToggleButton:hover {
+    transform: scale(1.1);
+    color: #aaffff; /* Brighter on hover */
 }
 
 .summary-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly larger cards */
+    gap: 30px; /* More space between cards */
     margin-bottom: 40px;
 }
 
-.card {
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    padding: 20px;
-    border-radius: 16px; /* Slightly larger for glass effect */
-    text-align: center;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    overflow: hidden; /* Ensures content stays within rounded borders */
-    position: relative; /* For potential pseudo-elements or overlays */
+/* 2. Liquid (Blob) Shapes & 3. Glass Effect */
+.card, .invoice-form, .filters, .invoice-list {
+    background: rgba(255, 255, 255, 0.1); /* Lighter transparency */
+    border: 1px solid rgba(255, 255, 255, 0.18); /* Softer border */
+    backdrop-filter: blur(30px); /* Increased blur for a stronger glass effect */
+    -webkit-backdrop-filter: blur(30px);
+    padding: 30px; /* Generous padding */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+    position: relative;
+    /* Liquid shape border-radius */
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: blob-animation 12s ease-in-out infinite alternate; /* Slower, alternating animation */
+}
+
+@keyframes blob-animation {
+    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    25% { border-radius: 70% 30% 60% 40% / 40% 70% 30% 60%; }
+    50% { border-radius: 40% 60% 70% 30% / 70% 40% 60% 30%; }
+    75% { border-radius: 30% 70% 40% 60% / 30% 60% 40% 70%; }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 }
 
 .card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 8px 16px var(--glass-shadow-light);
-    background-color: rgba(255, 255, 255, 0.1); /* Slightly more opaque on hover */
-}
-
-
-.card:hover {
-    transform: translateY(-5px);
-    background-color: var(--card-hover-bg-light);
+    transform: translateY(-8px) scale(1.03); /* More pronounced hover effect */
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.15); /* Slightly more opaque on hover */
 }
 
 .card h3 {
     margin-top: 0;
-    color: var(--header-footer-color-light);
-    transition: color 0.3s ease;
+    color: var(--text-color);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
 .card p {
-    font-size: 1.8em;
+    font-size: 2em; /* Larger font size for impact */
     font-weight: bold;
     margin: 10px 0 0;
+    color: #fff; /* White for numbers to stand out */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-.total-receivable p {
-    color: var(--status-paid-bg-light); /* Green for total receivable */
-}
-
-.total-collected p {
-    color: var(--focus-border-color-light); /* Blue for collected */
-}
-
-.total-overdue p {
-    color: var(--status-overdue-bg-light); /* Red for overdue */
-}
-
-.invoice-form, .filters, .invoice-list {
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    padding: 30px;
-    border-radius: 16px; /* Consistent with cards */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-    transition: all 0.3s ease;
-}
+.total-receivable p { color: #8aff8a; } /* Brighter green */
+.total-collected p { color: #8affff; } /* Cyan for collected */
+.total-overdue p { color: #ff8a8a; } /* Brighter red */
 
 
 .form-group {
@@ -190,102 +156,99 @@ h1, h2 {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: var(--header-footer-color-light);
-    transition: color 0.3s ease;
+    color: var(--text-color);
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
 .form-group input[type="text"],
 .form-group input[type="number"],
 .form-group input[type="date"],
 .form-group select {
-    width: calc(100% - 22px); /* Adjust for padding and border */
+    width: calc(100% - 24px); /* Adjust for padding and border */
     padding: 12px;
-    border: 1px solid var(--border-color-light);
-    border-radius: 5px;
+    border: 1px solid var(--input-border);
+    border-radius: 10px; /* Slightly rounded inputs */
     font-size: 1em;
     box-sizing: border-box;
-    background-color: var(--container-bg-light); /* Ensure input background changes with theme */
-    color: var(--text-color-light);
-    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input[type="text"]:focus,
 .form-group input[type="number"]:focus,
 .form-group input[type="date"]:focus,
 .form-group select:focus {
-    border-color: var(--focus-border-color-light);
+    border-color: var(--focus-border-color);
     outline: none;
-    box-shadow: 0 0 0 2px var(--focus-border-color-light); /* Adjust for transparency */
+    box-shadow: 0 0 0 3px rgba(138, 255, 255, 0.4); /* Ethereal focus glow */
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly more opaque on focus */
 }
 
 button {
-    background-color: var(--button-primary-bg-light);
+    background-color: var(--button-primary-bg);
     color: white;
     padding: 12px 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px; /* Rounded buttons */
     cursor: pointer;
     font-size: 1em;
-    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease;
     margin-right: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-    background-color: var(--button-primary-hover-bg-light);
-    transform: translateY(-2px);
+    background-color: var(--button-primary-hover-bg);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 button:active {
     transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Specific button styles */
-#applyFilters {
-    background-color: var(--button-success-bg-light); /* Green */
-}
-
-#applyFilters:hover {
-    background-color: var(--button-success-hover-bg-light);
-}
-
-#clearFilters {
-    background-color: var(--button-danger-bg-light); /* Red */
-}
-
-#clearFilters:hover {
-    background-color: var(--button-danger-hover-bg-light);
-}
+#applyFilters { background-color: var(--button-success-bg); }
+#applyFilters:hover { background-color: var(--button-success-hover-bg); }
+#clearFilters { background-color: var(--button-danger-bg); }
+#clearFilters:hover { background-color: var(--button-danger-hover-bg); }
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 25px;
+    background: rgba(255, 255, 255, 0.05); /* Slightly transparent table background */
+    border-radius: 15px; /* Rounded table corners */
+    overflow: hidden; /* Ensures rounded corners are visible */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
 table thead th {
-    background-color: var(--table-header-bg-light);
+    background-color: var(--table-header-bg);
     color: white;
     padding: 15px;
     text-align: left;
-    border-bottom: 3px solid var(--table-header-border-light);
+    border-bottom: 2px solid var(--table-header-border);
     transition: background-color 0.3s ease, border-color 0.3s ease;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
 }
 
 table tbody td {
     padding: 12px 15px;
-    border-bottom: 1px solid var(--border-color-light);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Lighter row borders */
     vertical-align: middle;
-    transition: border-color 0.3s ease;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 table tbody tr:nth-child(even) {
-    background-color: var(--table-row-even-bg-light);
-    transition: background-color 0.3s ease;
+    background-color: var(--table-row-even-bg);
 }
 
 table tbody tr:hover {
-    background-color: var(--table-row-hover-bg-light);
-    transition: background-color 0.3s ease;
+    background-color: var(--table-row-hover-bg);
 }
 
 .status-badge {
@@ -296,20 +259,13 @@ table tbody tr:hover {
     font-weight: bold;
     color: white;
     text-align: center;
-    min-width: 80px; /* Ensure badges have similar width */
+    min-width: 80px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-.status-Bekliyor {
-    background-color: var(--status-pending-bg-light); /* Orange */
-}
-
-.status-Ödendi {
-    background-color: var(--status-paid-bg-light); /* Green */
-}
-
-.status-Gecikti {
-    background-color: var(--status-overdue-bg-light); /* Red */
-}
+.status-Bekliyor { background-color: var(--status-pending-bg); }
+.status-Ödendi { background-color: var(--status-paid-bg); }
+.status-Gecikti { background-color: var(--status-overdue-bg); }
 
 .actions button {
     padding: 8px 15px;
@@ -317,34 +273,31 @@ table tbody tr:hover {
     margin-right: 5px;
 }
 
-.actions button.mark-paid {
-    background-color: var(--button-success-bg-light);
-}
+.actions button.mark-paid { background-color: var(--button-success-bg); }
+.actions button.mark-paid:hover { background-color: var(--button-success-hover-bg); }
+.actions button.mark-overdue { background-color: var(--button-danger-bg); }
+.actions button.mark-overdue:hover { background-color: var(--button-danger-hover-bg); }
+.actions button.delete { background-color: var(--button-secondary-bg); }
+.actions button.delete:hover { background-color: var(--button-secondary-hover-bg); }
 
-.actions button.mark-paid:hover {
-    background-color: var(--button-success-hover-bg-light);
-}
 
-.actions button.mark-overdue {
-    background-color: var(--button-danger-bg-light);
-}
-
-.actions button.mark-overdue:hover {
-    background-color: var(--button-danger-hover-bg-light);
-}
-
-.actions button.delete {
-    background-color: var(--button-secondary-bg-light); /* Gray for delete */
-}
-
-.actions button.delete:hover {
-    background-color: var(--button-secondary-hover-bg-light);
-}
-
-/* Responsive Design */
+/* Responsive Design - Adapted for new aesthetic */
 @media (max-width: 768px) {
+    .container {
+        width: 95%;
+        margin: 20px auto;
+        gap: 20px;
+    }
+
     .summary-cards {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card, .invoice-form, .filters, .invoice-list {
+        padding: 20px; /* Slightly less padding on smaller screens */
+        border-radius: 50% 50% 40% 60% / 50% 40% 60% 50%; /* Slightly simpler blob on mobile */
+        animation: blob-animation 10s ease-in-out infinite alternate; /* Faster animation on mobile */
     }
 
     table, thead, tbody, th, td, tr {
@@ -359,10 +312,11 @@ table tbody tr:hover {
 
     table tbody tr {
         margin-bottom: 15px;
-        border: 1px solid var(--border-color-light);
-        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
         padding: 10px;
-        box-shadow: 0 1px 3px var(--card-shadow-light);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        background: rgba(255, 255, 255, 0.08); /* Slightly more visible on mobile */
     }
 
     table tbody td {
@@ -381,7 +335,7 @@ table tbody tr:hover {
         white-space: nowrap;
         text-align: left;
         font-weight: bold;
-        color: var(--header-footer-color-light);
+        color: var(--text-color);
     }
 
     .actions {
