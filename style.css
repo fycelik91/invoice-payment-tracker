@@ -74,7 +74,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460, #16213e, #1a1a2e);
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
     color: var(--text-color-light);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -120,14 +120,14 @@ h1, h2 {
 }
 
 .card {
-    background-color: var(--glass-bg-color-light);
-    border: var(--glass-border-light);
-    backdrop-filter: blur(var(--glass-bg-blur));
-    -webkit-backdrop-filter: blur(var(--glass-bg-blur));
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     padding: 20px;
-    border-radius: 12px; /* Slightly larger for glass effect */
+    border-radius: 16px; /* Slightly larger for glass effect */
     text-align: center;
-    box-shadow: var(--glass-shadow-light);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     overflow: hidden; /* Ensures content stays within rounded borders */
     position: relative; /* For potential pseudo-elements or overlays */
@@ -170,13 +170,13 @@ h1, h2 {
 }
 
 .invoice-form, .filters, .invoice-list {
-    background-color: var(--glass-bg-color-light);
-    border: var(--glass-border-light);
-    backdrop-filter: blur(var(--glass-bg-blur));
-    -webkit-backdrop-filter: blur(var(--glass-bg-blur));
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     padding: 30px;
-    border-radius: 12px; /* Consistent with cards */
-    box-shadow: var(--glass-shadow-light);
+    border-radius: 16px; /* Consistent with cards */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
     transition: all 0.3s ease;
 }
