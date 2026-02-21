@@ -1,4 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const themeToggleButton = document.getElementById('themeToggleButton');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+        document.body.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            themeToggleButton.textContent = '☀️';
+        } else {
+            themeToggleButton.textContent = '🌙';
+        }
+    } else {
+        // Default to light theme if no preference is set
+        document.body.setAttribute('data-theme', 'light');
+        themeToggleButton.textContent = '🌙';
+    }
+
+    themeToggleButton.addEventListener('click', () => {
+        let theme = document.body.getAttribute('data-theme');
+        if (theme === 'light') {
+            theme = 'dark';
+            themeToggleButton.textContent = '☀️';
+        } else {
+            theme = 'light';
+            themeToggleButton.textContent = '🌙';
+        }
+        document.body.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    });
     const addInvoiceForm = document.getElementById('addInvoiceForm');
     const invoiceTableBody = document.getElementById('invoiceTableBody');
     const totalReceivableElement = document.getElementById('totalReceivable');

@@ -1,24 +1,115 @@
+
+:root {
+    --bg-color-light: #f4f7f6;
+    --text-color-light: #333;
+    --container-bg-light: #ffffff;
+    --header-footer-color-light: #2c3e50;
+    --card-bg-light: #ecf0f1;
+    --card-hover-bg-light: #e0e5e7;
+    --form-section-bg-light: #fdfdfd;
+    --border-color-light: #ddd;
+    --focus-border-color-light: #3498db;
+    --button-primary-bg-light: #3498db;
+    --button-primary-hover-bg-light: #2980b9;
+    --button-success-bg-light: #28a745;
+    --button-success-hover-bg-light: #218838;
+    --button-danger-bg-light: #dc3545;
+    --button-danger-hover-bg-light: #c82333;
+    --button-secondary-bg-light: #95a5a6;
+    --button-secondary-hover-bg-light: #7f8c8d;
+    --table-header-bg-light: #34495e;
+    --table-header-border-light: #2c3e50;
+    --table-row-even-bg-light: #f9f9f9;
+    --table-row-hover-bg-light: #f1f1f1;
+    --status-pending-bg-light: #f39c12;
+    --status-paid-bg-light: #27ae60;
+    --status-overdue-bg-light: #e74c3c;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --card-shadow-light: rgba(0, 0, 0, 0.05);
+    --form-shadow-light: rgba(0, 0, 0, 0.04);
+
+    /* Glassmorphism specific variables */
+    --glass-bg-blur: 10px;
+    --glass-bg-color-light: rgba(255, 255, 255, 0.2);
+    --glass-border-light: 1px solid rgba(255, 255, 255, 0.3);
+    --glass-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body[data-theme="dark"] {
+    --bg-color-light: #1a1a2e;
+    --text-color-light: #e0e0e0;
+    --container-bg-light: #16213e;
+    --header-footer-color-light: #e0e0e0;
+    --card-bg-light: rgba(255, 255, 255, 0.05);
+    --card-hover-bg-light: rgba(255, 255, 255, 0.08);
+    --form-section-bg-light: #0f3460;
+    --border-color-light: #4a4a60;
+    --focus-border-color-light: #52b2e8;
+    --button-primary-bg-light: #52b2e8;
+    --button-primary-hover-bg-light: #3a97d1;
+    --button-success-bg-light: #4CAF50;
+    --button-success-hover-bg-light: #45a049;
+    --button-danger-bg-light: #f44336;
+    --button-danger-hover-bg-light: #da190b;
+    --button-secondary-bg-light: #6c757d;
+    --button-secondary-hover-bg-light: #5a6268;
+    --table-header-bg-light: #283747;
+    --table-header-border-light: #34495e;
+    --table-row-even-bg-light: rgba(255, 255, 255, 0.03);
+    --table-row-hover-bg-light: rgba(255, 255, 255, 0.07);
+    --status-pending-bg-light: #ffc107;
+    --status-paid-bg-light: #28a745;
+    --status-overdue-bg-light: #dc3545;
+    --shadow-light: rgba(0, 0, 0, 0.25);
+    --card-shadow-light: rgba(0, 0, 0, 0.15);
+    --form-shadow-light: rgba(0, 0, 0, 0.12);
+
+    /* Glassmorphism specific variables for dark theme */
+    --glass-bg-color-light: rgba(255, 255, 255, 0.05);
+    --glass-border-light: 1px solid rgba(255, 255, 255, 0.1);
+    --glass-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f4f7f6;
-    color: #333;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: var(--container-bg-light);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px var(--shadow-light);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 h1, h2 {
-    color: #2c3e50;
+    color: var(--header-footer-color-light);
     text-align: center;
     margin-bottom: 25px;
+    transition: color 0.3s ease;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+#themeToggleButton {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--header-footer-color-light);
+    transition: color 0.3s ease;
 }
 
 .summary-cards {
@@ -29,21 +120,35 @@ h1, h2 {
 }
 
 .card {
-    background-color: #ecf0f1;
+    background-color: var(--glass-bg-color-light);
+    border: var(--glass-border-light);
+    backdrop-filter: blur(var(--glass-bg-blur));
+    -webkit-backdrop-filter: blur(var(--glass-bg-blur));
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 12px; /* Slightly larger for glass effect */
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease-in-out;
+    box-shadow: var(--glass-shadow-light);
+    transition: all 0.3s ease;
+    overflow: hidden; /* Ensures content stays within rounded borders */
+    position: relative; /* For potential pseudo-elements or overlays */
 }
 
 .card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px var(--glass-shadow-light);
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly more opaque on hover */
+}
+
+
+.card:hover {
     transform: translateY(-5px);
+    background-color: var(--card-hover-bg-light);
 }
 
 .card h3 {
     margin-top: 0;
-    color: #34495e;
+    color: var(--header-footer-color-light);
+    transition: color 0.3s ease;
 }
 
 .card p {
@@ -52,25 +157,30 @@ h1, h2 {
     margin: 10px 0 0;
 }
 
-.total-receivable .card-p {
-    color: #27ae60; /* Green for total receivable */
+.total-receivable p {
+    color: var(--status-paid-bg-light); /* Green for total receivable */
 }
 
-.total-collected .card-p {
-    color: #2980b9; /* Blue for collected */
+.total-collected p {
+    color: var(--focus-border-color-light); /* Blue for collected */
 }
 
-.total-overdue .card-p {
-    color: #e74c3c; /* Red for overdue */
+.total-overdue p {
+    color: var(--status-overdue-bg-light); /* Red for overdue */
 }
 
 .invoice-form, .filters, .invoice-list {
-    background-color: #fdfdfd;
+    background-color: var(--glass-bg-color-light);
+    border: var(--glass-border-light);
+    backdrop-filter: blur(var(--glass-bg-blur));
+    -webkit-backdrop-filter: blur(var(--glass-bg-blur));
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border-radius: 12px; /* Consistent with cards */
+    box-shadow: var(--glass-shadow-light);
     margin-bottom: 30px;
+    transition: all 0.3s ease;
 }
+
 
 .form-group {
     margin-bottom: 20px;
@@ -80,7 +190,8 @@ h1, h2 {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #34495e;
+    color: var(--header-footer-color-light);
+    transition: color 0.3s ease;
 }
 
 .form-group input[type="text"],
@@ -89,23 +200,26 @@ h1, h2 {
 .form-group select {
     width: calc(100% - 22px); /* Adjust for padding and border */
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color-light);
     border-radius: 5px;
     font-size: 1em;
     box-sizing: border-box;
+    background-color: var(--container-bg-light); /* Ensure input background changes with theme */
+    color: var(--text-color-light);
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .form-group input[type="text"]:focus,
 .form-group input[type="number"]:focus,
 .form-group input[type="date"]:focus,
 .form-group select:focus {
-    border-color: #3498db;
+    border-color: var(--focus-border-color-light);
     outline: none;
-    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    box-shadow: 0 0 0 2px var(--focus-border-color-light); /* Adjust for transparency */
 }
 
 button {
-    background-color: #3498db;
+    background-color: var(--button-primary-bg-light);
     color: white;
     padding: 12px 25px;
     border: none;
@@ -117,7 +231,7 @@ button {
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: var(--button-primary-hover-bg-light);
     transform: translateY(-2px);
 }
 
@@ -127,21 +241,20 @@ button:active {
 
 /* Specific button styles */
 #applyFilters {
-    background-color: #28a745; /* Green */
+    background-color: var(--button-success-bg-light); /* Green */
 }
 
 #applyFilters:hover {
-    background-color: #218838;
+    background-color: var(--button-success-hover-bg-light);
 }
 
 #clearFilters {
-    background-color: #dc3545; /* Red */
+    background-color: var(--button-danger-bg-light); /* Red */
 }
 
 #clearFilters:hover {
-    background-color: #c82333;
+    background-color: var(--button-danger-hover-bg-light);
 }
-
 
 table {
     width: 100%;
@@ -150,25 +263,29 @@ table {
 }
 
 table thead th {
-    background-color: #34495e;
+    background-color: var(--table-header-bg-light);
     color: white;
     padding: 15px;
     text-align: left;
-    border-bottom: 3px solid #2c3e50;
+    border-bottom: 3px solid var(--table-header-border-light);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 table tbody td {
     padding: 12px 15px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color-light);
     vertical-align: middle;
+    transition: border-color 0.3s ease;
 }
 
 table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: var(--table-row-even-bg-light);
+    transition: background-color 0.3s ease;
 }
 
 table tbody tr:hover {
-    background-color: #f1f1f1;
+    background-color: var(--table-row-hover-bg-light);
+    transition: background-color 0.3s ease;
 }
 
 .status-badge {
@@ -183,15 +300,15 @@ table tbody tr:hover {
 }
 
 .status-Bekliyor {
-    background-color: #f39c12; /* Orange */
+    background-color: var(--status-pending-bg-light); /* Orange */
 }
 
 .status-Ödendi {
-    background-color: #27ae60; /* Green */
+    background-color: var(--status-paid-bg-light); /* Green */
 }
 
 .status-Gecikti {
-    background-color: #e74c3c; /* Red */
+    background-color: var(--status-overdue-bg-light); /* Red */
 }
 
 .actions button {
@@ -201,27 +318,27 @@ table tbody tr:hover {
 }
 
 .actions button.mark-paid {
-    background-color: #28a745;
+    background-color: var(--button-success-bg-light);
 }
 
 .actions button.mark-paid:hover {
-    background-color: #218838;
+    background-color: var(--button-success-hover-bg-light);
 }
 
 .actions button.mark-overdue {
-    background-color: #e74c3c;
+    background-color: var(--button-danger-bg-light);
 }
 
 .actions button.mark-overdue:hover {
-    background-color: #c82333;
+    background-color: var(--button-danger-hover-bg-light);
 }
 
 .actions button.delete {
-    background-color: #95a5a6; /* Gray for delete */
+    background-color: var(--button-secondary-bg-light); /* Gray for delete */
 }
 
 .actions button.delete:hover {
-    background-color: #7f8c8d;
+    background-color: var(--button-secondary-hover-bg-light);
 }
 
 /* Responsive Design */
@@ -242,10 +359,10 @@ table tbody tr:hover {
 
     table tbody tr {
         margin-bottom: 15px;
-        border: 1px solid #ddd;
+        border: 1px solid var(--border-color-light);
         border-radius: 8px;
         padding: 10px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        box-shadow: 0 1px 3px var(--card-shadow-light);
     }
 
     table tbody td {
@@ -264,7 +381,7 @@ table tbody tr:hover {
         white-space: nowrap;
         text-align: left;
         font-weight: bold;
-        color: #34495e;
+        color: var(--header-footer-color-light);
     }
 
     .actions {
@@ -278,4 +395,3 @@ table tbody tr:hover {
         margin-bottom: 8px;
     }
 }
-
